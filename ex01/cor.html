@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando Responsividade</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: gray;
+            
+        }
+        p {
+            margin: 15px 0px;
+            text-align: justify;
+            text-indent: 20px;
+            font-size: 1em;
+            line-height: 1.8em;
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            min-width: 250px;
+            max-width: 800px;
+            margin: 40px auto;
+            padding-top: 7%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+        }
+        img {
+            width: 100%;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            background: rgb(34, 3, 75);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            justify-content: space-around;
+            height: 7vh;
+            align-items: center;
+        }
+        .logo{
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+        }
+        .mobile-menu div {
+            width: 32px;
+            height: 2px;
+            background: #fff;
+            margin: 8px;
+        }
+
+        @media (max-width: 700px){
+            body{
+                overflow-x: hidden;
+            }
+            .mobile-menu{
+                display: block;
+            }
+            .nav-list {
+                position: absolute;
+                top: 7vh;
+                right: 0;
+                width: 50vw;
+                height: 92vh;
+                background: rgb(34, 3, 75);
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in;
+            }
+            nav ul li {
+                margin-top: 0;
+                margin-left: 0;
+            }
+            .nav-list.active {
+                transform: translateX(0);
+            }
+        }
+        nav ul {
+            display: flex;
+        }
+        nav ul li{
+            list-style: none;
+            letter-spacing: 3px;
+            margin-left: 32px;
+        }
+        nav a{
+            text-decoration: none;
+            color:#fff;
+            transition: 0.5s;
+        }
+        nav a:hover{
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="#">LOGO</a>
+            <div onclick="clique()" class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#">INICIO</a></li>
+                <li><a href="#">OUTRA</a></li>
+                <li><a href="#">SOBRE</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Testando Responsividade</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sapiente, excepturi soluta vitae velit optio. Aperiam at libero labore laborum, molestias praesentium laudantium, illum maxime repudiandae voluptatum sed consequuntur obcaecati! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod odio, perspiciatis corporis ut dolor aspernatur perferendis minima placeat numquam sit dignissimos repudiandae similique. Assumenda nihil doloremque provident dolores, molestias odit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam atque, impedit soluta nisi provident quibusdam. Eum commodi accusantium labore! Alias, quam expedita! Impedit officiis nihil ipsa. Perspiciatis blanditiis voluptas ab!</p>
+        <picture>
+            <source media="(max-width: 600px)" srcset="./irina-bok.jpg">
+            <img src="./irina.jpg" alt="irina">
+        </picture>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sapiente, excepturi soluta vitae velit optio. Aperiam at libero labore laborum, molestias praesentium laudantium, illum maxime repudiandae voluptatum sed consequuntur obcaecati! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod odio, perspiciatis corporis ut dolor aspernatur perferendis minima placeat numquam sit dignissimos repudiandae similique. Assumenda nihil doloremque provident dolores, molestias odit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam atque, impedit soluta nisi provident quibusdam. Eum commodi accusantium labore! Alias, quam expedita! Impedit officiis nihil ipsa. Perspiciatis blanditiis voluptas ab!</p>
+    </main>
+    <script>
+        let menu = document.querySelector('.nav-list')
+        let links = document.querySelector('.nav-list li')
+        function clique (){
+            if (menu.classList.value == 'nav-list active'){
+                menu.classList.remove('active')
+            }else{
+                menu.classList.add('active')
+            }
+        }
+    </script>
+</body>
+</html>
